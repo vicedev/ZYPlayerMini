@@ -19,8 +19,11 @@ require("./taro");
 /* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/cjs/react.production.min.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _app_less__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.less */ "./src/app.less");
-/* harmony import */ var _app_less__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_app_less__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var taro_ui_dist_style_index_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! taro-ui/dist/style/index.scss */ "./node_modules/taro-ui/dist/style/index.scss");
+/* harmony import */ var taro_ui_dist_style_index_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(taro_ui_dist_style_index_scss__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _app_less__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.less */ "./src/app.less");
+/* harmony import */ var _app_less__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_app_less__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -301,6 +304,17 @@ exports.unstable_wrapCallback=function(a){var b=S;return function(){var c=S;S=b;
 exports.unstable_pauseExecution=function(){};exports.unstable_getFirstCallbackNode=function(){return M(O)};exports.unstable_Profiling=null;
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @tarojs/runtime */ "./node_modules/@tarojs/runtime/dist/runtime.esm.js")["window"]))
+
+/***/ }),
+
+/***/ "./node_modules/taro-ui/dist/style/index.scss":
+/*!****************************************************!*\
+  !*** ./node_modules/taro-ui/dist/style/index.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 

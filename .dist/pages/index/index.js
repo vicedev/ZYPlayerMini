@@ -47,10 +47,11 @@ module.exports = _typeof;
 /* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/@tarojs/components/mini/index.js");
 /* harmony import */ var taro_ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! taro-ui */ "./node_modules/taro-ui/dist/index.umd.js");
 /* harmony import */ var taro_ui__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(taro_ui__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var taro_ui_dist_style_components_button_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! taro-ui/dist/style/components/button.scss */ "./node_modules/taro-ui/dist/style/components/button.scss");
-/* harmony import */ var taro_ui_dist_style_components_button_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(taro_ui_dist_style_components_button_scss__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index.less */ "./src/pages/index/index.less");
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _home_home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../home/home */ "./src/pages/home/home.jsx");
+/* harmony import */ var _collect_collect__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../collect/collect */ "./src/pages/collect/collect.jsx");
+/* harmony import */ var _mine_mine__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../mine/mine */ "./src/pages/mine/mine.jsx");
+/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index.less */ "./src/pages/index/index.less");
+/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -58,7 +59,8 @@ module.exports = _typeof;
 
 
 
- // 按需引入
+
+
 
 
 
@@ -68,9 +70,15 @@ var Index = /*#__PURE__*/function (_Component) {
   var _super = Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Index);
 
   function Index() {
+    var _this;
+
     Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(this, Index);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.state = {
+      current: 0
+    };
+    return _this;
   }
 
   Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Index, [{
@@ -89,13 +97,43 @@ var Index = /*#__PURE__*/function (_Component) {
     key: "componentDidHide",
     value: function componentDidHide() {}
   }, {
+    key: "handleClick",
+    value: function handleClick(value) {
+      console.log(value);
+      this.setState({
+        current: value
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
-        className: "index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["Text"], null, "Hello world!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtButton"], {
-        type: "primary"
-      }, "I need Taro UI"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        style: {
+          display: this.state.current === 0 ? 'show' : 'none'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_home_home__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        style: {
+          display: this.state.current === 1 ? 'show' : 'none'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_collect_collect__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        style: {
+          display: this.state.current === 2 ? 'show' : 'none'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_mine_mine__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtTabBar"], {
+        fixed: true,
+        tabList: [{
+          title: '首页',
+          iconType: 'home'
+        }, {
+          title: '收藏',
+          iconType: 'star'
+        }, {
+          title: '我的',
+          iconType: 'user'
+        }],
+        onClick: this.handleClick.bind(this),
+        current: this.state.current
+      }));
     }
   }]);
 
@@ -111,7 +149,7 @@ var Index = /*#__PURE__*/function (_Component) {
   !*** ./node_modules/taro-ui/dist/index.umd.js ***!
   \************************************************/
 /*! no static exports found */
-/*! exports used: AtButton */
+/*! exports used: AtSearchBar, AtTabBar, AtTabs, AtTabsPane, AtToast */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(window, global, document) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
@@ -11280,17 +11318,6 @@ var Index = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./node_modules/taro-ui/dist/style/components/button.scss":
-/*!****************************************************************!*\
-  !*** ./node_modules/taro-ui/dist/style/components/button.scss ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -11324,6 +11351,230 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./src/pages/collect/collect.jsx":
+/*!***************************************!*\
+  !*** ./src/pages/collect/collect.jsx ***!
+  \***************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Collect; });
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/cjs/react.production.min.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/@tarojs/components/mini/index.js");
+/* harmony import */ var _collect_less__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./collect.less */ "./src/pages/collect/collect.less");
+/* harmony import */ var _collect_less__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_collect_less__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+
+
+var Collect = /*#__PURE__*/function (_Component) {
+  Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Collect, _Component);
+
+  var _super = Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Collect);
+
+  function Collect() {
+    Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(this, Collect);
+
+    return _super.apply(this, arguments);
+  }
+
+  Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Collect, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {}
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
+  }, {
+    key: "componentDidShow",
+    value: function componentDidShow() {}
+  }, {
+    key: "componentDidHide",
+    value: function componentDidHide() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["Text"], null, "Collect"));
+    }
+  }]);
+
+  return Collect;
+}(react__WEBPACK_IMPORTED_MODULE_4__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./src/pages/collect/collect.less":
+/*!****************************************!*\
+  !*** ./src/pages/collect/collect.less ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/pages/home/home.jsx":
+/*!*********************************!*\
+  !*** ./src/pages/home/home.jsx ***!
+  \*********************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Home; });
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/cjs/react.production.min.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/@tarojs/components/mini/index.js");
+/* harmony import */ var taro_ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! taro-ui */ "./node_modules/taro-ui/dist/index.umd.js");
+/* harmony import */ var taro_ui__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(taro_ui__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _home_less__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home.less */ "./src/pages/home/home.less");
+/* harmony import */ var _home_less__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_home_less__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+
+
+
+var Home = /*#__PURE__*/function (_Component) {
+  Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Home, _Component);
+
+  var _super = Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Home);
+
+  function Home() {
+    var _this;
+
+    Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(this, Home);
+
+    _this = _super.call(this);
+    _this.state = {
+      sourceName: "test",
+      toastShow: false,
+      toastContent: '',
+      current: 0
+    };
+    return _this;
+  }
+
+  Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Home, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {}
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
+  }, {
+    key: "componentDidShow",
+    value: function componentDidShow() {}
+  }, {
+    key: "componentDidHide",
+    value: function componentDidHide() {}
+  }, {
+    key: "handleSearchClick",
+    value: function handleSearchClick() {
+      this.setState({
+        toastShow: 1,
+        toastContent: 'click search',
+        currentTab: 0
+      });
+    }
+  }, {
+    key: "handleTabClick",
+    value: function handleTabClick(value) {
+      this.setState({
+        currentTab: value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var tabList = [{
+        title: '标签页1'
+      }, {
+        title: '标签页2'
+      }, {
+        title: '标签页3'
+      }];
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        className: "at-col"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        onClick: this.handleSearchClick.bind(this)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtSearchBar"], {
+        showActionButton: false,
+        placeholder: this.state.sourceName,
+        disabled: 1 // fixed={1}
+
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtTabs"], {
+        scroll: 1,
+        current: this.state.currentTab,
+        tabList: tabList,
+        onClick: this.handleTabClick.bind(this)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtTabsPane"], {
+        current: this.state.currentTab,
+        index: 0
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        style: "padding: 100px 50px;background-color: #FAFBFC;text-align: center;"
+      }, "\u6807\u7B7E\u9875\u4E00\u7684\u5185\u5BB9")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtTabsPane"], {
+        current: this.state.currentTab,
+        index: 1
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        style: "padding: 100px 50px;background-color: #FAFBFC;text-align: center;"
+      }, "\u6807\u7B7E\u9875\u4E8C\u7684\u5185\u5BB9")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtTabsPane"], {
+        current: this.state.currentTab,
+        index: 2
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], {
+        style: "padding: 100px 50px;background-color: #FAFBFC;text-align: center;"
+      }, "\u6807\u7B7E\u9875\u4E09\u7684\u5185\u5BB9"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(taro_ui__WEBPACK_IMPORTED_MODULE_6__["AtToast"], {
+        isOpened: this.state.toastShow,
+        text: this.state.toastContent
+      }));
+    }
+  }]);
+
+  return Home;
+}(react__WEBPACK_IMPORTED_MODULE_4__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./src/pages/home/home.less":
+/*!**********************************!*\
+  !*** ./src/pages/home/home.less ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/pages/index/index.jsx":
 /*!***********************************!*\
   !*** ./src/pages/index/index.jsx ***!
@@ -11351,6 +11602,85 @@ var inst = Page(Object(_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageC
 /*!************************************!*\
   !*** ./src/pages/index/index.less ***!
   \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/pages/mine/mine.jsx":
+/*!*********************************!*\
+  !*** ./src/pages/mine/mine.jsx ***!
+  \*********************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Mine; });
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/cjs/react.production.min.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/@tarojs/components/mini/index.js");
+/* harmony import */ var _mine_less__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mine.less */ "./src/pages/mine/mine.less");
+/* harmony import */ var _mine_less__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_mine_less__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+
+
+var Mine = /*#__PURE__*/function (_Component) {
+  Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Mine, _Component);
+
+  var _super = Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Mine);
+
+  function Mine() {
+    Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(this, Mine);
+
+    return _super.apply(this, arguments);
+  }
+
+  Object(_Users_qiuguoqing_Documents_MiniPrograns_ZYPlayerMini_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Mine, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {}
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
+  }, {
+    key: "componentDidShow",
+    value: function componentDidShow() {}
+  }, {
+    key: "componentDidHide",
+    value: function componentDidHide() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__["Text"], null, "Mine"));
+    }
+  }]);
+
+  return Mine;
+}(react__WEBPACK_IMPORTED_MODULE_4__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./src/pages/mine/mine.less":
+/*!**********************************!*\
+  !*** ./src/pages/mine/mine.less ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
